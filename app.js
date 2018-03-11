@@ -107,10 +107,10 @@ function start() {
 		 1.0,   1.0,  -1.0,      1,    0,
 
 		// Front
-		 1.0,   1.0,   1.0,      1,    0,
+		 1.0,   1.0,   1.0,      1,    1,
 		 1.0,  -1.0,   1.0,      1,    0,
-		-1.0,  -1.0,   1.0,      1,    0,
-		-1.0,   1.0,   1.0,      1,    0,
+		-1.0,  -1.0,   1.0,      0,    0,
+		-1.0,   1.0,   1.0,      0,    1,
 
 		// Back
 		 1.0,   1.0,  -1.0,      0,    0,
@@ -196,7 +196,7 @@ function start() {
   gl.texImage2D(
     gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA,
     gl.UNSIGNED_BYTE,
-    document.getElementById('crate-image')
+    document.getElementById('crate-img')
   );
   gl.useProgram(program);
 
@@ -232,7 +232,7 @@ function start() {
     gl.uniformMatrix4fv(matWorldUniformLocation, gl.FALSE, worldMatrix);
 
     clearCanvas(gl);
-
+    
     gl.drawElements(gl.TRIANGLES, boxIndices.length, gl.UNSIGNED_SHORT, 0);
     requestAnimationFrame(loop);
   };
